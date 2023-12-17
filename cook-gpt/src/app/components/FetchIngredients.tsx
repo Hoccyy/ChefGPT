@@ -1,8 +1,8 @@
 import OpenAI from "openai";
 
-const GPT_API_KEY = process.env.GPT_API_KEY13 || process.env.GPT_API_KEY1;
+const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY13 || process.env.GPT_API_KEY1;
 
-const openai = new OpenAI({apiKey : process.env.GPT_API_KEY13, dangerouslyAllowBrowser: true});
+const openai = new OpenAI({apiKey : GPT_API_KEY, dangerouslyAllowBrowser: true});
 
 type Props = {
     inputBar: HTMLInputElement

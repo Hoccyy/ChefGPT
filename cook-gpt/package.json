@@ -15,7 +15,8 @@
     "openai": "^4.22.1",
     "react": "^18",
     "react-dom": "^18",
-    "upgrade": "^1.1.0"
+    "upgrade": "^1.1.0",
+    "vercel": "^32.7.2"
   },
   "devDependencies": {
     "@types/node": "^20",
