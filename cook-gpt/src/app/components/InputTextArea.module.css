@@ -1,0 +1,42 @@
+.inputBox {
+    min-width: 10vw;
+    min-height: 80px;
+    max-height: 145px;
+    width: 80%;
+    border: none;
+    border-radius: 13px;
+    font-size: 30.13px;
+    padding: 13px;
+    resize: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inputBox:focus { 
+    /*outline: thin dotted;*/
+    outline: none;
+}
+
+.inputBoxCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.inputButton {
+    height: 99.13px;
+    width: 135.13px;
+    font-size: 80px;
+    color: white;
+    margin-left: 9px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(22, 22, 22);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.inputButton:hover {
+    font-size: 83px;
+    outline: .3px grey solid;
+}

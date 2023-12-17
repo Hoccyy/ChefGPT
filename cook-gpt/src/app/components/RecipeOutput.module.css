@@ -1,0 +1,23 @@
+.OutputBackground {
+
+    height: fit-content;
+    width: 100% inherit;
+    max-width: 100% inherit;
+    word-break: break-all;
+    text-align: center;
+}
+
+.OutputMessage {
+    background-color: rgb(224, 224, 224);
+    text-align: justify;
+    margin: 13px;
+    padding: 23px;
+    outline: 2px black solid;
+    border-radius: 13px;
+    height: 490px;
+    overflow: scroll;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: black;
+    white-space:pre-wrap;
+    word-break:break-word;
+}
