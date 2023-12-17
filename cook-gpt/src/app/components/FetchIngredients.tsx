@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const GPT_API_KEY = process.env.GPT_API_KEY13 || '1313';
+const GPT_API_KEY = process.env.GPT_API_KEY13;
 
 const openai = new OpenAI({apiKey : GPT_API_KEY, dangerouslyAllowBrowser: true});
 
