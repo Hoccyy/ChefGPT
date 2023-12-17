@@ -1,9 +1,6 @@
 import OpenAI from "openai";
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-const GPT_API_KEY = process.env.GPT_API_KEY13;
+const GPT_API_KEY = process.env.GPT_API_KEY13 || process.env.GPT_API_KEY1;
 
 const openai = new OpenAI({apiKey : GPT_API_KEY, dangerouslyAllowBrowser: true});
 
