@@ -1,8 +1,8 @@
 import OpenAI from "openai";
 
-const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY13 || process.env.GPT_API_KEY1;
+const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY13;
 
-const openai = new OpenAI({apiKey : GPT_API_KEY, dangerouslyAllowBrowser: true});
+const openai = new OpenAI({apiKey : "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", dangerouslyAllowBrowser: true});
 
 type Props = {
     inputBar: HTMLInputElement
@@ -14,10 +14,14 @@ const FetchIngredients = async ({
     let recipeResult = '';
 
     let submitButton = document.getElementById('submitButton') as HTMLInputElement;
+    let processingMessage = document.getElementById('processingMessage');
+
     submitButton.setAttribute(
         'style',
         'background-color: darkgrey; color: grey;',
     );
+    
+    processingMessage!.innerHTML = "Finding recipe...";
     submitButton.disabled = true;
 
     const stream = await openai.chat.completions.create({
@@ -25,26 +29,24 @@ const FetchIngredients = async ({
         messages: [{
             role: "user",
             content: ("If all of following items : [" + (inputBar.value) + "], are food items, ingredient items, or a sentence telling you the type of food they want \
-            randomly choose a recipe that can be made with them and \
-            describe how to make this meal. If a single item is not edible or food simple respond \"Sorry, I can't help you with that.\"")
-
-            /*
-            content: ("If all of following items : [" + (inputBar.value) + "], are food items, ingredient items, or EDIBLE give a \
-            concise non wordy recipe for a meal that could be made. otherwise simply return \"Sorry, I can't help you with that.\"")
-            */
+            choose a recipe that can be made with them and describe how to make this meal, without apologizing for anything simply describe the recipe and meal.\
+            The ingredients may be separated by various delimiters such as commas, periods, spaces, or ingredients input without any spacing. try your best to split them \
+            apart. Also please Try to make ANY meal as long as the ingredients are edible try your best. No meal is off limits including pastries and cakes.\
+            \
+            \
+            ONLY If a single item is not edible or food simple respond \"Sorry, I can't help you with that.\" or else you MUST ALWAYS find a recipe if its ALL edible items.")
         }],
         stream: true,
     });
-    //alert (inputBar.value);
     for await (const chunk of stream) {
         if (chunk.choices[0].delta.content) recipeResult += (chunk.choices[0].delta.content);
-        //process.stdout.write(chunk.choices[0]?.delta?.content || "");
     }
     submitButton.setAttribute(
         'style',
         'background-color: black; color: white;'
     );
     submitButton.disabled = false;
+    processingMessage!.innerHTML = ". . .";
     return recipeResult;
 };
 
@@ -53,14 +55,3 @@ FetchIngredients.defaultProps = {
 };
 
 export default FetchIngredients;
-/*
-curl https://api.openai.com/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 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" \
-  -d '{
-     "model": "gpt-3.5-turbo-16k-0613",
-     "messages": [{"role": "user", "content": "3+3"}],
-     "temperature": 0.7
-   }'
-
-*/

@@ -1,3 +1,8 @@
+::selection {
+  background-color: grey;
+  color:white;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -118,3 +123,4 @@ a {
     color: rgb(77, 77, 77)y;
   }
 }
+

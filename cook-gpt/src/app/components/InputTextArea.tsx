@@ -38,8 +38,6 @@ const InputTextArea = ({
             </input>
             <button id='submitButton' className={inputStyles.inputButton} onClick={()=> {
                 let input = document.getElementById('userInputArea') as HTMLInputElement;
-                //let submitButton = document.getElementById('submitButton') as HTMLInputElement;
-                //submitButton.setAttribute('style', 'background-color: red;');
 
                 FetchIngredients({ inputBar: input })
                 .then(result => {
@@ -49,7 +47,6 @@ const InputTextArea = ({
                     .catch(error => {
                         alert(error);
                     });
-                //submitButton.setAttribute('style', 'background-color: black;');
             }}>
                 {buttonContent}
             </button>
