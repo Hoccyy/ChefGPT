@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import inputStyles from './TopBar.module.css'
 
 const TopBar = ({

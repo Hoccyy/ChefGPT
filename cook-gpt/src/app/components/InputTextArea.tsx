@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React from 'react'
 import inputStyles from './InputTextArea.module.css'
 import FetchIngredients from './FetchIngredients'
 
@@ -33,16 +33,16 @@ const InputTextArea = ({
                       }
                     },
                     {once : true}
-                  );
+                );
             }}>
             </input>
             <button id='submitButton' className={inputStyles.inputButton} onClick={()=> {
                 let input = document.getElementById('userInputArea') as HTMLInputElement;
 
                 FetchIngredients({ inputBar: input })
-                .then(result => {
-                    let recipeOutput = document.getElementById('recipeOutput');
-                        if (recipeOutput) recipeOutput.innerHTML = result;
+                    .then(result => {
+                        let recipeOutput = document.getElementById('recipeOutput');
+                            if (recipeOutput) recipeOutput.innerHTML = result;
                     })
                     .catch(error => {
                         alert(error);

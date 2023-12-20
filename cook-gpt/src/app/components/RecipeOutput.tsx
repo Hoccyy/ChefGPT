@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import RecipeOutputStyles from './RecipeOutput.module.css'
 
 type Props = {

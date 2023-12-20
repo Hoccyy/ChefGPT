@@ -2,7 +2,10 @@ import OpenAI from "openai";
 
 const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY13;
 
-const openai = new OpenAI({apiKey : GPT_API_KEY, dangerouslyAllowBrowser: true});
+const openai = new OpenAI({
+    apiKey : GPT_API_KEY,
+    dangerouslyAllowBrowser: true
+});
 
 type Props = {
     inputBar: HTMLInputElement
@@ -13,17 +16,23 @@ const FetchIngredients = async ({
 }:Props) => {
     let recipeResult = '';
 
-    let submitButton = document.getElementById('submitButton') as HTMLInputElement;
+    let submitButton = document.getElementById('submitButton')! as HTMLInputElement;
+
+    if (submitButton == null) {
+        return recipeResult;
+    }
+
     let processingMessage = document.getElementById('processingMessage');
 
+    // Visual loading effects to wait on results ~
     submitButton.setAttribute(
         'style',
         'background-color: darkgrey; color: grey;',
     );
-    
     processingMessage!.innerHTML = "Finding recipe...";
     submitButton.disabled = true;
 
+    // Processes the user's request through the OpenAI API with selective prompting
     const stream = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-16k-0613",
         messages: [{
@@ -33,25 +42,23 @@ const FetchIngredients = async ({
             The ingredients may be separated by various delimiters such as commas, periods, spaces, or ingredients input without any spacing. try your best to split them \
             apart. Also please Try to make ANY meal as long as the ingredients are edible try your best. No meal is off limits including pastries and cakes.\
             \
-            \
             ONLY If a single item is not edible or food simple respond \"Sorry, I can't help you with that.\" or else you MUST ALWAYS find a recipe if its ALL edible items.")
         }],
         stream: true,
     });
+
     for await (const chunk of stream) {
         if (chunk.choices[0].delta.content) recipeResult += (chunk.choices[0].delta.content);
     }
+
+    // Visual loading effects to wait on results ~
     submitButton.setAttribute(
         'style',
         'background-color: black; color: white;'
     );
-    submitButton.disabled = false;
+    submitButton!.disabled = false;
     processingMessage!.innerHTML = ". . .";
     return recipeResult;
-};
-
-FetchIngredients.defaultProps = {
-
 };
 
 export default FetchIngredients;
