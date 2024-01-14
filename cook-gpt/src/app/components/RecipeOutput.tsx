@@ -1,5 +1,5 @@
-import React from 'react'
-import RecipeOutputStyles from './RecipeOutput.module.css'
+import React from 'react';
+import RecipeOutputStyles from './RecipeOutput.module.css';
 
 type Props = {
     userName?: string
@@ -19,10 +19,6 @@ const RecipeOutput = ({
             </div>
         </div>
     );
-};
-
-RecipeOutput.defaultProps = {
-    userName : '',
 };
 
 export default RecipeOutput;

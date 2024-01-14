@@ -1,7 +1,7 @@
-import styles from './page.module.css'
-import InputTextArea from './components/InputTextArea'
-import TopBar from './components/TopBar'
-import RecipeOutput from './components/RecipeOutput'
+import styles from './page.module.css';
+import InputTextArea from './components/InputTextArea';
+import TopBar from './components/TopBar';
+import RecipeOutput from './components/RecipeOutput';
 
 const placeHolderSuggestion = 'Onions, Bacon, Eggs, Cheese...';
 

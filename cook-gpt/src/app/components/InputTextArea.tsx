@@ -1,7 +1,7 @@
-"use client"
-import React from 'react'
-import inputStyles from './InputTextArea.module.css'
-import FetchIngredients from './FetchIngredients'
+"use client";
+import React from 'react';
+import inputStyles from './InputTextArea.module.css';
+import FetchIngredients from './FetchIngredients';
 
 type Props = {
     placeHolder?: string
@@ -35,6 +35,7 @@ const InputTextArea = ({
                     {once : true}
                 );
             }}>
+
             </input>
             <button id='submitButton' className={inputStyles.inputButton} onClick={()=> {
                 let input = document.getElementById('userInputArea') as HTMLInputElement;
