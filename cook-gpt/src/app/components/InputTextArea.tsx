@@ -28,6 +28,13 @@ const InputTextArea = ({
                                 if (recipeOutput) recipeOutput.innerHTML = result;
                             })
                             .catch(error => {
+                                let submitButton = document.getElementById('submitButton')! as HTMLInputElement;
+                                // Visual loading effects to wait on results ~
+                                submitButton.setAttribute(
+                                    'style',
+                                    'background-color: black; color: white;'
+                                );
+                                submitButton!.disabled = false;
                                 console.log(error);
                             });
                       }
