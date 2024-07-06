@@ -55,7 +55,7 @@ const InputTextArea = ({
                     let submitButton = document.getElementById('submitButton') as HTMLElement;
 
 
-                    if (recipeOutput) {
+                    if (!recipeOutput) {return}
                         let index = 0;
                         recipeOutput.innerHTML = '';
                         
@@ -76,7 +76,7 @@ const InputTextArea = ({
                             }
                         }
                         
-                    }
+                    
                 })
                 .catch(error => {
                     alert(error);
