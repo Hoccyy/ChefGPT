@@ -5,6 +5,8 @@ type Props = {
     userName?: string
 };
 
+var outputPlaceHolder : string = "Your recipes will come here!"
+
 const RecipeOutput = ({
     userName = ''
 }:Props) => {
@@ -13,7 +15,7 @@ const RecipeOutput = ({
             <div id='recipeOutputBG' className={RecipeOutputStyles.OutputMessage}>
 
                 <h1 id='recipeOutput' className={RecipeOutputStyles.Instructions}>
-                    Your recipes will come here!
+                    {outputPlaceHolder}
                 </h1>
 
             </div>

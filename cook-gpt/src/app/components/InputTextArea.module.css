@@ -3,8 +3,10 @@
     min-height: 80px;
     max-height: 145px;
     width: 80%;
+    margin-left: 5px;
+    margin-bottom: 13px;
     border: none;
-    border-radius: 13px;
+    border-radius: 26px 0 0 26px;
     font-size: 30.13px;
     padding: 13px;
     resize: none;
@@ -20,22 +22,32 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 30px 5px 30px 5px;
 }
 
 .inputButton {
-    height: 99.13px;
+    height: 80px;
+    max-height: 145px;
     width: 135.13px;
     font-size: 80px;
+    font-size: 26px;
     color: white;
-    margin-left: 9px;
+    margin-right: 5px;
+    margin-bottom: 13px;
     border: none;
-    border-radius: 12px;
+    border-radius: 0 26px 26px 0;
     background-color: rgb(22, 22, 22);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 .inputButton:hover {
-    font-size: 83px;
-    outline: .3px grey solid;
+    animation: buttonPop 0.13s ease-in forwards;
+}
+
+/* anims list */
+@keyframes buttonPop {
+    0%{}
+    100%{
+        font-size: 27px;
+    }
 }

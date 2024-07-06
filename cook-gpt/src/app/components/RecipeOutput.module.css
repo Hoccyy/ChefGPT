@@ -4,6 +4,7 @@
     max-width: 100% inherit;
     word-break: break-all;
     text-align: center;
+    scrollbar-width: none;
 }
 
 .OutputMessage {
@@ -19,4 +20,9 @@
     color: black;
     white-space:pre-wrap;
     word-break:break-word;
+    scrollbar-width: none;
 }
+
+.OutputMessage::-webkit-scrollbar {
+    display: none;
+  }

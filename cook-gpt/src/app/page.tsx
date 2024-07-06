@@ -8,7 +8,7 @@ const placeHolderSuggestion = 'Onions, Bacon, Eggs, Cheese...';
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>ChefGPT 0.1</h1>
+      <h1>ChefGPT 0.2</h1>
       <div className={styles.layout}>
         <TopBar/>
         <RecipeOutput/>

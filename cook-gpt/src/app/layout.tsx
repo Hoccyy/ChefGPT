@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ChefGPT 0.1',
+  title: 'ChefGPT 0.2',
   description: 'Web app to decide what meal to make with your ingredients, and tells you how to make it step by step with integrated AI.',
 }
 
