@@ -5,7 +5,7 @@ type Props = {
     userName?: string
 };
 
-var outputPlaceHolder : string = "Your recipes will come here!"
+var outputPlaceHolder : string = "Your recipes will come here!\n\nEnter each ingredient separated by a comma"
 
 const RecipeOutput = ({
     userName = ''

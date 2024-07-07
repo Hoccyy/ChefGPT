@@ -25,8 +25,23 @@ const InputTextArea = ({
                         event.preventDefault;
                         FetchIngredients({ inputBar: input })
                             .then(result => {
-                                let recipeOutput = document.getElementById('recipeOutput');
-                                if (recipeOutput) recipeOutput.innerHTML = result;
+                                let recipeOutput = document.getElementById('recipeOutput') as HTMLElement;
+                                let recipeOutputDiv = document.getElementById('recipeOutputBG') as HTMLElement;
+
+                                if (!recipeOutput) {return} 
+                                let index = 0;
+                                recipeOutput.innerHTML = '';
+                                
+                                function typeWriter() {
+                                    if (index < result.length) {
+                                        recipeOutput.innerHTML += result.charAt(index);
+                                        recipeOutputDiv.scrollTop = recipeOutputDiv.scrollHeight;
+                                        index++;
+                                        setTimeout(typeWriter, typewriterSpeed);
+                                        let processingMessage = document.getElementById('processingMessage');
+                                    }
+                                }
+                                typeWriter();
                             })
                             .catch(error => {
                                 let submitButton = document.getElementById('submitButton')! as HTMLInputElement;
@@ -52,8 +67,6 @@ const InputTextArea = ({
                 .then(result => {
                     let recipeOutput = document.getElementById('recipeOutput') as HTMLElement;
                     let recipeOutputDiv = document.getElementById('recipeOutputBG') as HTMLElement;
-                    let submitButton = document.getElementById('submitButton') as HTMLElement;
-
 
                     if (!recipeOutput) {return}
                         let index = 0;
@@ -66,17 +79,9 @@ const InputTextArea = ({
                                 index++;
                                 setTimeout(typeWriter, typewriterSpeed);
                                 let processingMessage = document.getElementById('processingMessage');
-
-                                // Visual loading effects to wait on results ~
-                                submitButton.setAttribute(
-                                    'style',
-                                    'background-color: darkgrey; color: grey;',
-                                );
-                                processingMessage!.innerHTML = "Finding recipe...";
                             }
                         }
-                        
-                    
+                        typeWriter();
                 })
                 .catch(error => {
                     alert(error);
