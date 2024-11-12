@@ -14,6 +14,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  <head>
+    <meta name="google-adsense-account" content="ca-pub-9022203058839959"></meta>
+  </head>
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
